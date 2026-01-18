@@ -156,6 +156,23 @@
             snowman.appendChild(button);
           }
           
+          // Hat (red cone)
+          const hat = document.createElement('a-cone');
+          hat.setAttribute('radius-bottom', '0.4');
+          hat.setAttribute('radius-top', '0.1');
+          hat.setAttribute('height', '1.1');
+          hat.setAttribute('position', '0 3.4 0');
+          hat.setAttribute('color', 'red');
+          hat.setAttribute('shadow', 'cast: true');
+          snowman.appendChild(hat);
+          
+          // Hat top (black sphere)
+          const hatTop = document.createElement('a-sphere');
+          hatTop.setAttribute('radius', '0.10');
+          hatTop.setAttribute('position', '0 4.1 0');
+          hatTop.setAttribute('color', '#000000');
+          snowman.appendChild(hatTop);
+          
           container.appendChild(snowman);
         },
         
@@ -168,31 +185,30 @@
           trunk.setAttribute('radius', '0.2');
           trunk.setAttribute('height', '1.5');
           trunk.setAttribute('position', '0 0.75 0');
-          trunk.setAttribute('color', '#8B4513');
+          trunk.setAttribute('color', '#FFC65D');
           trunk.setAttribute('shadow', 'cast: true');
           tree.appendChild(trunk);
           
-          // Tree foliage (3 cones stacked)
-          const coneColors = ['#0B6623', '#228B22', '#2E8B57'];
-          const coneHeights = [2, 1.8, 1.6];
-          const coneYPositions = [2.2, 3.2, 4];
+          // Tree foliage (4 cones stacked)
+          const coneHeights = [2, 1.8, 1.6, 1.4];
+          const coneYPositions = [2.2, 3.2, 4, 4.8];
           
-          for (let i = 0; i < 3; i++) {
+          for (let i = 0; i < 4; i++) {
             const cone = document.createElement('a-cone');
             cone.setAttribute('radius-bottom', `${1.2 - i * 0.2}`);
             cone.setAttribute('radius-top', '0.1');
             cone.setAttribute('height', coneHeights[i]);
             cone.setAttribute('position', `0 ${coneYPositions[i]} 0`);
-            cone.setAttribute('color', coneColors[i]);
+            cone.setAttribute('color', '#0B6623');
             cone.setAttribute('shadow', 'cast: true');
             tree.appendChild(cone);
           }
           
-          // Star on top
+          // Star on top (red)
           const star = document.createElement('a-sphere');
-          star.setAttribute('radius', '0.25');
-          star.setAttribute('position', '0 5.2 0');
-          star.setAttribute('color', '#FFD700');
+          star.setAttribute('radius', '0.10');
+          star.setAttribute('position', '0 5.7 0');
+          star.setAttribute('color', '#EF2D5E');
           tree.appendChild(star);
           
           container.appendChild(tree);
@@ -211,10 +227,15 @@
       <a-light type="directional" light="castShadow:true;" position="1 1 1" intensity="1.57"></a-light>
       <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
       
-      <!-- Initial snowman for preview -->
-      <a-entity id="preview-objects" position="0 0 -1.5">
-        <!-- Snowman -->
-        <a-entity position="-0.5 0 0" scale="0.15 0.15 0.15">
+      <a-entity id="objects" scale="0.2 0.2 0.2" position="0.8 0 -1" shadow>
+        <a-box position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+        <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      </a-entity>
+    
+       <!-- Snowman -->
+      <a-entity id="preview-objects" position="-0.5 0 -1">
+        <a-entity scale="0.2 0.2 0.2" position="-0.2 0 0" >
           <a-sphere radius="1" position="0 0.5 0" color="#FFFFFF" shadow="cast: true"></a-sphere>
           <a-sphere radius="0.75" position="0 1.7 0" color="#FFFFFF" shadow="cast: true"></a-sphere>
           <a-sphere radius="0.5" position="0 2.6 0" color="#FFFFFF" shadow="cast: true"></a-sphere>
@@ -224,15 +245,18 @@
           <a-sphere radius="0.1" position="0 1.7 0.75" color="#000000"></a-sphere>
           <a-sphere radius="0.1" position="0 1.4 0.75" color="#000000"></a-sphere>
           <a-sphere radius="0.1" position="0 1.1 0.75" color="#000000"></a-sphere>
+          <a-cone radius-bottom="0.4" radius-top="0.1" height="1.1" position="0 3.4 0" color="red" shadow="cast: true"></a-cone>
+          <a-sphere radius="0.10" position="0 4.1 0" color="#000000"></a-sphere>
         </a-entity>
         
         <!-- Pine Tree -->
-        <a-entity position="0.5 0 0" scale="0.15 0.15 0.15">
-          <a-cylinder radius="0.2" height="1.5" position="0 0.75 0" color="#8B4513" shadow="cast: true"></a-cylinder>
+        <a-entity scale="0.2 0.2 0.2"position="0.5 0 0" >
+          <a-cylinder radius="0.2" height="1.5" position="0 0.75 0" color="#FFC65D" shadow="cast: true"></a-cylinder>
           <a-cone radius-bottom="1.2" radius-top="0.1" height="2" position="0 2.2 0" color="#0B6623" shadow="cast: true"></a-cone>
-          <a-cone radius-bottom="1.0" radius-top="0.1" height="1.8" position="0 3.2 0" color="#228B22" shadow="cast: true"></a-cone>
-          <a-cone radius-bottom="0.8" radius-top="0.1" height="1.6" position="0 4 0" color="#2E8B57" shadow="cast: true"></a-cone>
-          <a-sphere radius="0.25" position="0 5.2 0" color="#FFD700"></a-sphere>
+          <a-cone radius-bottom="1.0" radius-top="0.1" height="1.8" position="0 3.2 0" color="#0B6623" shadow="cast: true"></a-cone>
+          <a-cone radius-bottom="0.8" radius-top="0.1" height="1.6" position="0 4 0" color="#0B6623" shadow="cast: true"></a-cone>
+          <a-cone radius-bottom="0.6" radius-top="0.1" height="1.4" position="0 4.8 0" color="#0B6623" shadow="cast: true"></a-cone>
+          <a-sphere radius="0.10" position="0 5.7 0" color="#EF2D5E"></a-sphere>
         </a-entity>
       </a-entity>
       
