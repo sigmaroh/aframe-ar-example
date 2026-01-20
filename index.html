@@ -207,7 +207,7 @@
           // Star on top (red)
           const star = document.createElement('a-sphere');
           star.setAttribute('radius', '0.10');
-          star.setAttribute('position', '0 5.7 0');
+          star.setAttribute('position', '0 5.6 0');
           star.setAttribute('color', '#EF2D5E');
           tree.appendChild(star);
           
@@ -222,7 +222,7 @@
       ar-hit-test-spawn
       renderer="colorManagement: true; exposure: 1; toneMapping: ACESFilmic"
       shadow="type: pcfsoft"
-      xr-mode-ui="XRMode: xr"
+      xr-mode-ui="XRMode: ar"
     >
       <a-light type="directional" light="castShadow:true;" position="1 1 1" intensity="1.57"></a-light>
       <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
@@ -256,7 +256,7 @@
           <a-cone radius-bottom="1.0" radius-top="0.1" height="1.8" position="0 3.2 0" color="#0B6623" shadow="cast: true"></a-cone>
           <a-cone radius-bottom="0.8" radius-top="0.1" height="1.6" position="0 4 0" color="#0B6623" shadow="cast: true"></a-cone>
           <a-cone radius-bottom="0.6" radius-top="0.1" height="1.4" position="0 4.8 0" color="#0B6623" shadow="cast: true"></a-cone>
-          <a-sphere radius="0.10" position="0 5.7 0" color="#EF2D5E"></a-sphere>
+          <a-sphere radius="0.10" position="0 5.6 0" color="#EF2D5E"></a-sphere>
         </a-entity>
       </a-entity>
       
