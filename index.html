@@ -227,15 +227,18 @@
       <a-light type="directional" light="castShadow:true;" position="1 1 1" intensity="1.57"></a-light>
       <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
       
-      <a-entity id="objects" scale="0.2 0.2 0.2" position="0.8 0 -1" shadow>
-        <a-box position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9"></a-box>
-        <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
-        <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      </a-entity>
-    
-       <!-- Snowman -->
-      <a-entity id="preview-objects" position="-0.5 0 -1">
-        <a-entity scale="0.2 0.2 0.2" position="-0.2 0 0" >
+      
+  
+      <a-entity id="preview-objects" position="0 0 -1">
+        
+        <a-entity id="objects" scale="0.15 0.15 0.15" position="0.6 0 0" shadow>
+          <a-box position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9"></a-box>
+          <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+          <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+        </a-entity>
+
+         <!-- Snowman -->
+        <a-entity scale="0.15 0.15 0.15" position="-0.5 0 0" >
           <a-sphere radius="1" position="0 0.5 0" color="#FFFFFF" shadow="cast: true"></a-sphere>
           <a-sphere radius="0.75" position="0 1.7 0" color="#FFFFFF" shadow="cast: true"></a-sphere>
           <a-sphere radius="0.5" position="0 2.6 0" color="#FFFFFF" shadow="cast: true"></a-sphere>
@@ -250,7 +253,7 @@
         </a-entity>
         
         <!-- Pine Tree -->
-        <a-entity scale="0.2 0.2 0.2"position="0.5 0 0" >
+        <a-entity scale="0.15 0.15 0.15"position="0 0 0" >
           <a-cylinder radius="0.2" height="1.5" position="0 0.75 0" color="#FFC65D" shadow="cast: true"></a-cylinder>
           <a-cone radius-bottom="1.2" radius-top="0.1" height="2" position="0 2.2 0" color="#0B6623" shadow="cast: true"></a-cone>
           <a-cone radius-bottom="1.0" radius-top="0.1" height="1.8" position="0 3.2 0" color="#0B6623" shadow="cast: true"></a-cone>
